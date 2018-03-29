@@ -34,3 +34,6 @@ class NewVisitorTest(unittest.TestCase):
         # ตั้นพบหน้าบอกว่า "Your quiz has been added"
         add_text = self.browser.find_element_by_tag_name('p')
         self.assertEqual('Your quiz has been added', add_text.text)
+
+if __name__ == '__main__':
+    unittest.main(warnings='ignore')
