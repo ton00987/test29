@@ -12,3 +12,7 @@ def add_quiz(request):
 
 def success(request):
     return render(request, 'success.html')
+
+def answer(request):
+    quizs = Quiz.objects.all().order_by('-id')
+    return render(request, 'answer.html', {'quizs': quizs})
