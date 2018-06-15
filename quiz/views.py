@@ -16,3 +16,13 @@ def success(request):
 def answer(request):
     quizs = Quiz.objects.all().order_by('-id')
     return render(request, 'answer.html', {'quizs': quizs})
+
+def score(request):
+    if request.method == 'POST':
+        quizs = Quiz.objects.all().order_by('-id')
+        score = 0
+        for i in range(quizs.count()):
+            if request.POST.get('ans'+str(i+1), '') == str(quizs[i].ans):
+                score += 1
+
+        return render(request, 'score.html', {'score': score})

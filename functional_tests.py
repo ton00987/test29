@@ -5,7 +5,7 @@ import time
 class NewVisitorTest(unittest.TestCase):
 
     def setUp(self):
-        self.browser = webdriver.Firefox('')
+        self.browser = webdriver.Firefox('C:\\Users\\Krittanat\\Downloads\\t59-010126-1001-5\\test29')
 
     def tearDown(self):
         self.browser.quit()
@@ -49,13 +49,18 @@ class NewVisitorTest(unittest.TestCase):
         question = self.browser.find_element_by_tag_name('p')
         self.assertIn('1+1=2', question.text)
 
-        inputbox = self.browser.find_element_by_id('id_ans_button')
-        self.assertEqual(inputbox.get_attribute('value'), 'Answer')
-        inputbox.click()
+        ans = self.browser.find_element_by_tag_name('input')
+        self.assertEqual(ans.get_attribute('name'), 'ans1')
+        ans.click()
+
+        time.sleep(3)
+        ans_button = self.browser.find_element_by_id('id_ans_button')
+        self.assertEqual(ans_button.get_attribute('value'), 'Answer')
+        ans_button.click()
 
         # ตั้นพบหน้าบอกว่าคุณตอบถูก 1 ข้อ
         congrat_text = self.browser.find_element_by_tag_name('p')
-        self.assertIn('You answered 1 question correctly', question.text)
+        self.assertEqual('You answered 1 question correctly', congrat_text.text)
 
         # ตั้นพอใจแล้วจึงปิดเว็บไป
 

@@ -22,5 +22,6 @@ urlpatterns = [
     path('', views.home_page, name='home'),
     path('addquiz', views.add_quiz, name='addquiz'),
     path('addquiz/success/', views.success, name='success'),
-    path('answer', views.answer, name='answer')
+    path('answer', views.answer, name='answer'),
+    path('answer/score', views.score, name='score')
 ]
