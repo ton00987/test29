@@ -5,7 +5,7 @@ import time
 class NewVisitorTest(unittest.TestCase):
 
     def setUp(self):
-        self.browser = webdriver.Firefox('C:\\Users\\Krittanat\\Downloads\\t59-010126-1001-5\\test29')
+        self.browser = webdriver.Firefox('')
 
     def tearDown(self):
         self.browser.quit()
